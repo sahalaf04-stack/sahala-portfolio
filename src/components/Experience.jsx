@@ -2,10 +2,10 @@ function Experience() {
   const experiences = [
     {
       title: "MERN Stack Intern",
-      company: "Inamigos Solutions",
+      company: "Emertxe",
       period: "Internship",
       description:
-        "Working on full-stack web development using the MERN stack and gaining practical experience in building modern web applications, REST APIs, database integration, and frontend development.",
+        "Gaining practical experience in full-stack web development through the MERN Stack Internship Program. Working with MongoDB, Express.js, React.js, Node.js, REST APIs, and modern web application development.",
       skills: [
         "MongoDB",
         "Express.js",
@@ -34,7 +34,7 @@ function Experience() {
       company: "AllCollegeEvents",
       period: "Campus Ambassador",
       description:
-        "Representing AllCollegeEvents as a campus ambassador by promoting technical events, hackathons, learning opportunities, and student-focused programs within the college community.",
+        "Representing AllCollegeEvents as a campus ambassador by promoting technical events, hackathons, learning opportunities, and student-focused programs.",
       skills: [
         "Community Building",
         "Event Promotion",

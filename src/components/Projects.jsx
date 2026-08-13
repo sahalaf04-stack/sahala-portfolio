@@ -14,7 +14,7 @@ function Projects() {
         "Streamlit",
       ],
       github:
-        "https://github.com/sahalaf04-stack/AI-Resume-Analyzer",
+        "https://github.com/sahalaf04-stack/AI-Resume-Matcher",
       live: "#",
     },
 

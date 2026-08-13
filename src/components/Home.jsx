@@ -1,173 +1,203 @@
+
 import { motion } from "framer-motion";
 
 function Home() {
   return (
-    <section className="hero" id="home">
-      <div className="hero-container">
+    <section id="home" className="home">
 
-        {/* =========================
-            HERO CONTENT
-        ========================== */}
+      {/* Background effects */}
+      <div className="hero-background">
+        <div className="hero-glow hero-glow-one"></div>
+        <div className="hero-glow hero-glow-two"></div>
+        <div className="hero-grid"></div>
+      </div>
+
+      <div className="home-container">
 
         <motion.div
           className="hero-content"
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
 
-          <p className="hero-greeting">
+          {/* Greeting */}
+          <motion.p
+            className="hero-greeting"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             Hello, I'm
-          </p>
+          </motion.p>
 
+          {/* Name */}
+          <motion.h1
+            className="hero-name"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.15,
+            }}
+          >
+            <span className="hero-name-highlight">
+              Sahala
+            </span>{" "}
+            Fathima P A
+          </motion.h1>
 
-          {/* =========================
-              NAME + PHOTO
-          ========================== */}
+          {/* Role */}
+          <motion.h2
+            className="hero-role"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.3,
+            }}
+          >
+            AI & Data Science Engineering Student
+          </motion.h2>
 
-          <div className="name-photo-row">
+          {/* Skills */}
+          <motion.div
+            className="typing-text"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.5,
+            }}
+          >
+            <span>Interested in </span>
 
-            <div className="name-wrapper">
+            <span className="typing-highlight">
+              Python
+            </span>
 
-              <h1>
-                <span className="first-name">
-                  Sahala
-                </span>
+            <span className="typing-separator">
+              {" "}•{" "}
+            </span>
 
-                <span className="full-name">
-                  {" "}Fathima P A
-                </span>
-              </h1>
+            <span className="typing-highlight">
+              AI / ML
+            </span>
 
-              <h2>
-                AI & Data Science Student
-              </h2>
+            <span className="typing-separator">
+              {" "}•{" "}
+            </span>
 
-            </div>
+            <span className="typing-highlight">
+              React
+            </span>
 
+            <span className="typing-separator">
+              {" "}•{" "}
+            </span>
 
-            {/* =========================
-                PROFILE PHOTO
-            ========================== */}
+            <span className="typing-highlight">
+              Node.js
+            </span>
+          </motion.div>
 
-            <motion.div
-              className="small-profile-wrapper"
-              initial={{
-                opacity: 0,
-                scale: 0.5,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.7,
-                delay: 0.4,
-              }}
+          {/* Description */}
+          <motion.p
+            className="hero-description"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.65,
+            }}
+          >
+            Passionate about building practical solutions using
+            Artificial Intelligence, Machine Learning, Python,
+            and modern web technologies. Currently gaining
+            industry experience through internships and
+            developing projects that solve real-world problems.
+          </motion.p>
+
+          {/* Buttons */}
+          <motion.div
+            className="hero-buttons"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.8,
+            }}
+          >
+            <a
+              href="#projects"
+              className="hero-button primary-button"
             >
-
-              <div className="small-photo-ring"></div>
-
-              <img
-                src="/images/sahala.jpg"
-                alt="Sahala Fathima P A"
-                className="small-profile-photo"
-              />
-
-            </motion.div>
-
-          </div>
-
-
-          {/* =========================
-              ROLE
-          ========================== */}
-
-          <div className="typing-text">
-
-            <span className="role">
-              Python Developer
-            </span>
-
-            <span className="separator">
-              |
-            </span>
-
-            <span className="role">
-              AI/ML Enthusiast
-            </span>
-
-            <span className="separator">
-              |
-            </span>
-
-            <span className="role">
-              MERN Stack Developer
-            </span>
-
-          </div>
-
-
-          {/* =========================
-              DESCRIPTION
-          ========================== */}
-
-          <p className="hero-description">
-            Passionate AI & Data Science student with experience
-            in Python, Machine Learning, Artificial Intelligence,
-            and MERN Stack development. I enjoy building practical
-            applications and continuously learning new technologies.
-          </p>
-
-
-          {/* =========================
-              BUTTONS
-          ========================== */}
-
-          <div className="hero-buttons">
-
-            <a href="#projects">
-              View Projects
+              View My Projects
+              <span>→</span>
             </a>
 
-            <a href="#contact">
-              Contact Me
+            <a
+              href="#contact"
+              className="hero-button secondary-button"
+            >
+              Let's Connect
+              <span>↗</span>
             </a>
+          </motion.div>
 
-          </div>
-
-
-          {/* =========================
-              SOCIAL LINKS
-          ========================== */}
-
-          <div className="hero-socials">
-
+          {/* Social links */}
+          <motion.div
+            className="hero-socials"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.7,
+              delay: 1,
+            }}
+          >
             <a
               href="https://github.com/sahalaf04-stack"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noreferrer"
             >
               GitHub
             </a>
 
+            <span>•</span>
+
             <a
-              href="https://www.linkedin.com/in/sahala-fathima-p-a-216b3b372"
+              href="https://www.linkedin.com/in/sahala-fathima-p-a-216b3b372/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noreferrer"
             >
               LinkedIn
             </a>
 
+            <span>•</span>
+
             <a href="mailto:sahalaf04@gmail.com">
               Email
             </a>
-
-          </div>
+          </motion.div>
 
         </motion.div>
 
+        {/* Scroll indicator */}
+        <motion.div
+          className="scroll-indicator"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 1,
+            delay: 1.3,
+          }}
+        >
+          <span></span>
+          <p>Scroll to explore</p>
+        </motion.div>
+
       </div>
+
     </section>
   );
 }

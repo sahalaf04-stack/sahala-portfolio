@@ -2,7 +2,7 @@ function Experience() {
   const experiences = [
     {
       title: "MERN Stack Intern",
-      company: "Emertxe Information Technologies"
+      company: "Emertxe Information Technologies",
       period: "Internship",
       description:
         "Gaining practical experience in full-stack web development through the MERN Stack Internship Program. Working with MongoDB, Express.js, React.js, Node.js, REST APIs, and modern web application development.",

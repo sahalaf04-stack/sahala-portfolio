@@ -3,10 +3,12 @@ import { motion } from "framer-motion";
 function Home() {
   return (
     <section className="hero" id="home">
-
       <div className="hero-container">
 
-        {/* TEXT */}
+        {/* =========================
+            HERO CONTENT
+        ========================== */}
+
         <motion.div
           className="hero-content"
           initial={{ opacity: 0, x: -60 }}
@@ -18,14 +20,23 @@ function Home() {
             Hello, I'm
           </p>
 
-          {/* NAME + PHOTO */}
+
+          {/* =========================
+              NAME + PHOTO
+          ========================== */}
+
           <div className="name-photo-row">
 
             <div className="name-wrapper">
 
               <h1>
-                Sahala
-                <span> Fathima P A</span>
+                <span className="first-name">
+                  Sahala
+                </span>
+
+                <span className="full-name">
+                  {" "}Fathima P A
+                </span>
               </h1>
 
               <h2>
@@ -34,7 +45,11 @@ function Home() {
 
             </div>
 
-            {/* SMALL PROFILE PHOTO */}
+
+            {/* =========================
+                PROFILE PHOTO
+            ========================== */}
+
             <motion.div
               className="small-profile-wrapper"
               initial={{
@@ -64,14 +79,38 @@ function Home() {
           </div>
 
 
+          {/* =========================
+              ROLE
+          ========================== */}
+
           <div className="typing-text">
-            Python Developer
-            <span> | </span>
-            AI/ML Enthusiast
-            <span> | </span>
-            MERN Stack Developer
+
+            <span className="role">
+              Python Developer
+            </span>
+
+            <span className="separator">
+              |
+            </span>
+
+            <span className="role">
+              AI/ML Enthusiast
+            </span>
+
+            <span className="separator">
+              |
+            </span>
+
+            <span className="role">
+              MERN Stack Developer
+            </span>
+
           </div>
 
+
+          {/* =========================
+              DESCRIPTION
+          ========================== */}
 
           <p className="hero-description">
             Passionate AI & Data Science student with experience
@@ -81,7 +120,10 @@ function Home() {
           </p>
 
 
-          {/* BUTTONS */}
+          {/* =========================
+              BUTTONS
+          ========================== */}
+
           <div className="hero-buttons">
 
             <a href="#projects">
@@ -95,13 +137,16 @@ function Home() {
           </div>
 
 
-          {/* SOCIAL LINKS */}
+          {/* =========================
+              SOCIAL LINKS
+          ========================== */}
+
           <div className="hero-socials">
 
             <a
               href="https://github.com/sahalaf04-stack"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               GitHub
             </a>
@@ -109,7 +154,7 @@ function Home() {
             <a
               href="https://www.linkedin.com/in/sahala-fathima-p-a-216b3b372"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               LinkedIn
             </a>
@@ -123,7 +168,6 @@ function Home() {
         </motion.div>
 
       </div>
-
     </section>
   );
 }

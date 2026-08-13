@@ -1,40 +1,12 @@
+import { motion } from "framer-motion";
+
 function Projects() {
   const projects = [
     {
       number: "01",
       title: "AI Resume Matcher",
       description:
-        "An AI-powered web application that analyzes resumes against job descriptions and provides a matching score with relevant insights.",
-      technologies: [
-        "Python",
-        "AI/ML",
-        "NLP",
-        "Streamlit",
-      ],
-      github:
-        "https://github.com/sahalaf04-stack",
-    },
-
-    {
-      number: "02",
-      title: "Fake News Detection",
-      description:
-        "A machine learning project designed to identify whether a given news article is likely to be real or fake using natural language processing techniques.",
-      technologies: [
-        "Python",
-        "Machine Learning",
-        "NLP",
-        "Streamlit",
-      ],
-      github:
-        "https://github.com/sahalaf04-stack/Fake-News-Detection",
-    },
-
-    {
-      number: "03",
-      title: "AI Spell Checker",
-      description:
-        "An AI-based web application that detects spelling errors and helps users improve written text through an interactive interface.",
+        "An AI-powered web application that analyzes resumes against job descriptions and provides a matching score with useful insights.",
       technologies: [
         "Python",
         "AI",
@@ -42,26 +14,58 @@ function Projects() {
         "Streamlit",
       ],
       github:
-        "https://github.com/sahalaf04-stack",
+        "https://github.com/sahalaf04-stack/AI-Resume-Analyzer",
+      live: "#",
+    },
+
+    {
+      number: "02",
+      title: "Fake News Detection",
+      description:
+        "A machine learning based application designed to identify whether a given news article is likely to be real or fake.",
+      technologies: [
+        "Python",
+        "Machine Learning",
+        "NLP",
+      ],
+      github:
+        "https://github.com/sahalaf04-stack/Fake-News-Detection",
+      live: "#",
+    },
+
+    {
+      number: "03",
+      title: "AI Spell Checker",
+      description:
+        "A web-based AI spell checking application that identifies spelling mistakes and provides corrected text.",
+      technologies: [
+        "Python",
+        "AI",
+        "NLP",
+        "Streamlit",
+      ],
+      github:
+        "https://github.com/sahalaf04-stack/AI-Spell-Checker-Web-App",
+      live: "#",
     },
 
     {
       number: "04",
       title: "Hangman Game",
       description:
-        "A Python-based interactive Hangman game developed to practice programming fundamentals, conditions, loops, functions, and user interaction.",
+        "A Python-based interactive Hangman game demonstrating programming fundamentals, loops, conditions, functions, and user interaction.",
       technologies: [
         "Python",
         "Game Development",
-        "Logic Building",
       ],
       github:
-        "https://github.com/sahalaf04-stack",
+        "https://github.com/sahalaf04-stack/CodeAlpha_HangmanGame",
+      live: "#",
     },
   ];
 
   return (
-    <section id="projects" className="projects">
+    <section className="projects">
 
       <div className="projects-container">
 
@@ -72,17 +76,43 @@ function Projects() {
         <h2>Featured Projects</h2>
 
         <p className="projects-intro">
-          A selection of projects that demonstrate my experience
-          with Artificial Intelligence, Machine Learning, Python,
-          and problem solving.
+          A collection of projects where I apply
+          Artificial Intelligence, Machine Learning,
+          Python, and software development concepts
+          to solve practical problems.
         </p>
 
         <div className="projects-grid">
 
-          {projects.map((project) => (
-            <div
+          {projects.map((project, index) => (
+
+            <motion.div
               className="project-card"
               key={project.number}
+
+              initial={{
+                opacity: 0,
+                y: 50,
+              }}
+
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+
+              transition={{
+                duration: 0.6,
+                delay: index * 0.12,
+              }}
+
+              whileHover={{
+                y: -10,
+              }}
             >
 
               <div className="project-top">
@@ -92,10 +122,10 @@ function Projects() {
                 </span>
 
                 <a
+                  className="github-link"
                   href={project.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="github-link"
                   aria-label={`View ${project.title} on GitHub`}
                 >
                   ↗
@@ -113,24 +143,27 @@ function Projects() {
 
               <div className="project-tech">
 
-                {project.technologies.map((technology) => (
-                  <span key={technology}>
-                    {technology}
-                  </span>
-                ))}
+                {project.technologies.map(
+                  (technology) => (
+                    <span key={technology}>
+                      {technology}
+                    </span>
+                  )
+                )}
 
               </div>
 
               <a
+                className="project-view"
                 href={project.github}
                 target="_blank"
                 rel="noreferrer"
-                className="project-view"
               >
-                View on GitHub →
+                View Project on GitHub →
               </a>
 
-            </div>
+            </motion.div>
+
           ))}
 
         </div>

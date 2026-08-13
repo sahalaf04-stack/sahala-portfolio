@@ -1,59 +1,141 @@
+import { motion } from "framer-motion";
+
 function About() {
+  const highlights = [
+    {
+      number: "01",
+      title: "AI & Data Science",
+      text: "Building practical solutions using Artificial Intelligence, Machine Learning and Python.",
+    },
+    {
+      number: "02",
+      title: "Full Stack Development",
+      text: "Developing modern web applications using React, Node.js, Express and MongoDB.",
+    },
+    {
+      number: "03",
+      title: "Problem Solving",
+      text: "Strengthening my Data Structures and Algorithms skills through continuous practice.",
+    },
+    {
+      number: "04",
+      title: "Continuous Learning",
+      text: "Constantly exploring new technologies, tools and industry practices.",
+    },
+  ];
+
   return (
-    <section id="about" className="about">
+    <section className="about" id="about">
 
       <div className="about-container">
 
-        <p className="section-subtitle">
-          Get To Know Me
-        </p>
+        <motion.div
+          className="about-heading"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="section-subtitle">
+            Get To Know Me
+          </p>
 
-        <h2>About Me</h2>
+          <h2>
+            About <span>Me</span>
+          </h2>
+        </motion.div>
 
-        <p>
-          I am an Artificial Intelligence and Data Science engineering
-          student at A.J. Institute of Engineering and Technology,
-          passionate about building practical technology solutions
-          and continuously improving my technical skills.
-        </p>
+        <div className="about-content">
 
-        <p>
-          My interests include Python development, Artificial
-          Intelligence, Machine Learning, Data Analytics, and
-          Full-Stack Development. I enjoy transforming ideas into
-          functional applications and solving real-world problems
-          through technology.
-        </p>
+          <motion.div
+            className="about-text"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
 
-        <p>
-          Alongside academics, I am gaining industry exposure through
-          internships and hands-on projects. I am currently focused
-          on strengthening my Data Structures and Algorithms,
-          AI/ML, software development, and problem-solving skills
-          to prepare for software and AI-related career opportunities.
-        </p>
+            <p>
+              I'm <strong>Sahala Fathima P A</strong>, an
+              Artificial Intelligence and Data Science student
+              passionate about technology and software development.
+            </p>
 
-        <div className="about-highlights">
+            <p>
+              I enjoy transforming ideas into practical applications
+              using Python, Artificial Intelligence, Machine Learning
+              and modern web technologies.
+            </p>
 
-          <div className="about-highlight">
-            <strong>AI & DS</strong>
-            <span>Engineering Student</span>
-          </div>
+            <p>
+              I'm currently expanding my skills in full-stack
+              development, AI/ML and Data Structures & Algorithms
+              while building projects that demonstrate real-world
+              problem-solving.
+            </p>
 
-          <div className="about-highlight">
-            <strong>Python</strong>
-            <span>Development & AI/ML</span>
-          </div>
+            <p>
+              My goal is to build impactful technology solutions
+              and grow as a software developer in the AI and
+              full-stack development space.
+            </p>
 
-          <div className="about-highlight">
-            <strong>MERN</strong>
-            <span>Full-Stack Development</span>
-          </div>
+          </motion.div>
 
-          <div className="about-highlight">
-            <strong>Problem Solving</strong>
-            <span>DSA & Programming</span>
-          </div>
+
+          <motion.div
+            className="about-highlights"
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+
+            {highlights.map((item, index) => (
+
+              <motion.div
+                className="about-highlight"
+                key={item.number}
+
+                initial={{ opacity: 0, y: 30 }}
+
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+
+                viewport={{
+                  once: true,
+                }}
+
+                transition={{
+                  delay: index * 0.1,
+                }}
+
+                whileHover={{
+                  x: 8,
+                }}
+              >
+
+                <span className="highlight-number">
+                  {item.number}
+                </span>
+
+                <div>
+                  <h3>
+                    {item.title}
+                  </h3>
+
+                  <p>
+                    {item.text}
+                  </p>
+                </div>
+
+              </motion.div>
+
+            ))}
+
+          </motion.div>
 
         </div>
 

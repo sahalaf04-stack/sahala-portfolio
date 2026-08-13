@@ -1,73 +1,151 @@
+import { motion } from "framer-motion";
+
 function Certifications() {
   const certifications = [
+    {
+      title: "Claude 101",
+      issuer: "Anthropic",
+      description:
+        "Completed Claude 101, covering the fundamentals and practical use of Claude and generative AI.",
+      credentialId: "6a6c47638f517ce457d9dfa5",
+      link: "https://verify.skilljar.com/c/minhqd6e2avd",
+    },
+
     {
       title: "TCS iON YUVA AI for All",
       issuer: "TCS iON",
       description:
-        "Certification focused on understanding Artificial Intelligence, its applications, and the impact of AI in the modern world.",
+        "Completed the TCS iON YUVA AI for All program, gaining foundational knowledge of Artificial Intelligence and its practical applications.",
+      credentialId: "Sahala_A_40027",
+      link: "#",
     },
+
     {
       title: "Google Gemini Certified Student",
       issuer: "Google",
       description:
-        "Certification recognizing learning and practical understanding of Google Gemini and Generative AI concepts.",
+        "Completed certification focused on understanding and using Google Gemini and generative AI tools.",
+      link: "#",
     },
+
     {
       title: "Python Essentials 1",
       issuer: "Cisco Networking Academy",
       description:
-        "Certification covering the fundamentals of Python programming, including variables, data types, operators, control flow, functions, and basic programming concepts.",
+        "Completed Python Essentials 1, covering Python programming fundamentals, data types, control flow, functions, and core programming concepts.",
+      link: "#",
     },
+
     {
-      title: "Data Analytics Job Simulation",
-      issuer: "Forage",
+      title: "Deloitte Job Simulation",
+      issuer: "Deloitte",
       description:
-        "Completed a practical job simulation focused on data analytics, problem solving, and real-world business scenarios.",
+        "Completed a Deloitte job simulation involving practical professional and technology-related tasks.",
+      credentialId: "03802433-6101-73161-0",
+      link: "#",
     },
+
     {
       title: "Machine Learning Using Python",
-      issuer: "Simplilearn SkillUp",
+      issuer: "Simplilearn",
       description:
-        "Completed training covering fundamental Machine Learning concepts and implementation using Python.",
+        "Completed training in Machine Learning using Python, covering fundamental machine learning concepts and implementation.",
+      link: "#",
     },
   ];
 
   return (
-    <section id="certifications" className="certifications">
+    <section className="certifications" id="certifications">
 
       <div className="certifications-container">
 
-        <p className="section-subtitle">
-          Learning & Achievements
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="section-subtitle">
+            Continuous Learning
+          </p>
 
-        <h2>Certifications</h2>
+          <h2>Certifications</h2>
+        </motion.div>
 
         <div className="certifications-grid">
 
           {certifications.map((certificate, index) => (
-            <div
+
+            <motion.div
               className="certificate-card"
-              key={index}
+              key={certificate.title}
+
+              initial={{
+                opacity: 0,
+                y: 50,
+              }}
+
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+              }}
+
+              whileHover={{
+                y: -10,
+                scale: 1.02,
+              }}
             >
 
               <div className="certificate-icon">
-                ✓
+                🏆
               </div>
 
               <h3>
                 {certificate.title}
               </h3>
 
-              <p>
+              <p className="certificate-issuer">
+                {certificate.issuer}
+              </p>
+
+              <p className="certificate-description">
                 {certificate.description}
               </p>
 
-              <span>
-                Issued by {certificate.issuer}
-              </span>
+              {certificate.credentialId && (
+                <p className="credential-id">
+                  Credential ID:{" "}
+                  {certificate.credentialId}
+                </p>
+              )}
 
-            </div>
+              {certificate.link !== "#" ? (
+                <a
+                  href={certificate.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="certificate-link"
+                >
+                  View Certificate →
+                </a>
+              ) : (
+                <span className="certificate-pending">
+                  Certificate
+                </span>
+              )}
+
+            </motion.div>
+
           ))}
 
         </div>

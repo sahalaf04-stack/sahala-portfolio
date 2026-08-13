@@ -1,7 +1,10 @@
+import { motion } from "framer-motion";
+
 function Skills() {
-  const skillCategories = [
+  const skillGroups = [
     {
       title: "Programming",
+      icon: "💻",
       skills: [
         "Python",
         "C",
@@ -12,84 +15,143 @@ function Skills() {
 
     {
       title: "AI & Data Science",
+      icon: "🧠",
       skills: [
         "Artificial Intelligence",
         "Machine Learning",
         "Natural Language Processing",
-        "Data Analytics",
-        "Generative AI",
+        "Data Science",
       ],
     },
 
     {
       title: "Web Development",
+      icon: "🌐",
       skills: [
         "HTML",
         "CSS",
         "React.js",
         "Node.js",
         "Express.js",
+        "MongoDB",
+      ],
+    },
+
+    {
+      title: "Tools & Technologies",
+      icon: "⚙️",
+      skills: [
+        "Git",
+        "GitHub",
+        "VS Code",
+        "Streamlit",
         "REST APIs",
       ],
     },
 
     {
-      title: "Databases & Tools",
+      title: "Core Concepts",
+      icon: "🚀",
       skills: [
-        "MongoDB",
-        "Git",
-        "GitHub",
-        "VS Code",
-        "Streamlit",
+        "Data Structures",
+        "Algorithms",
+        "OOP",
+        "DBMS",
+        "Problem Solving",
       ],
     },
   ];
 
   return (
-    <section id="skills" className="skills">
+    <section className="skills" id="skills">
 
       <div className="skills-container">
 
-        <p className="section-subtitle">
-          What I Work With
-        </p>
+        <motion.div
+          className="skills-heading"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="section-subtitle">
+            My Technical Toolkit
+          </p>
 
-        <h2>Technical Skills</h2>
+          <h2>
+            Skills & <span>Technologies</span>
+          </h2>
 
-        <p className="skills-intro">
-          Technologies and tools I use while building projects,
-          learning new concepts, and developing practical solutions.
-        </p>
+          <p className="skills-intro">
+            Technologies and concepts I'm learning and using
+            to build practical software and AI solutions.
+          </p>
+        </motion.div>
 
-        <div className="skills-categories">
 
-          {skillCategories.map((category, index) => (
-            <div
-              className="skill-category"
-              key={index}
+        <div className="skills-grid">
+
+          {skillGroups.map((group, index) => (
+
+            <motion.div
+              className="skill-card"
+              key={group.title}
+
+              initial={{
+                opacity: 0,
+                y: 50,
+              }}
+
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+              }}
+
+              whileHover={{
+                y: -8,
+              }}
             >
 
-              <div className="skill-category-header">
-                <span className="skill-number">
-                  0{index + 1}
+              <div className="skill-card-top">
+
+                <span className="skill-icon">
+                  {group.icon}
                 </span>
 
-                <h3>
-                  {category.title}
-                </h3>
+                <span className="skill-count">
+                  {group.skills.length}
+                </span>
+
               </div>
 
-              <div className="skill-list">
+              <h3>
+                {group.title}
+              </h3>
 
-                {category.skills.map((skill) => (
+              <div className="skill-tags">
+
+                {group.skills.map((skill) => (
+
                   <span key={skill}>
                     {skill}
                   </span>
+
                 ))}
 
               </div>
 
-            </div>
+            </motion.div>
+
           ))}
 
         </div>

@@ -1,111 +1,129 @@
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 function Home() {
-  const roles = [
-    "Python Developer",
-    "AI/ML Enthusiast",
-    "Data Science Student",
-    "Full-Stack Developer",
-  ];
-
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const currentRole = roles[roleIndex];
-
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        setDisplayText(
-          currentRole.substring(0, displayText.length + 1)
-        );
-
-        if (displayText.length === currentRole.length) {
-          setTimeout(() => {
-            setIsDeleting(true);
-          }, 1200);
-        }
-      } else {
-        setDisplayText(
-          currentRole.substring(0, displayText.length - 1)
-        );
-
-        if (displayText.length === 0) {
-          setIsDeleting(false);
-          setRoleIndex((prev) => (prev + 1) % roles.length);
-        }
-      }
-    }, isDeleting ? 60 : 100);
-
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, roleIndex]);
-
   return (
-    <section id="home" className="hero">
-      <div className="hero-content">
+    <section className="hero" id="home">
 
-        <p className="intro">
-          Hello, I'm
-        </p>
+      <div className="hero-container">
 
-        <h1>
-          Sahala Fathima P A
-        </h1>
+        {/* TEXT */}
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
 
-        <h2>
-          AI & Data Science Student
-        </h2>
+          <p className="hero-greeting">
+            Hello, I'm
+          </p>
 
-        <p className="description">
-          <span>{displayText}</span>
-          <span className="typing-cursor">|</span>
-        </p>
+          {/* NAME + PHOTO */}
+          <div className="name-photo-row">
 
-        <p className="hero-text">
-          I build practical solutions using Artificial Intelligence,
-          Machine Learning, Python, Data Analytics, and Full-Stack
-          technologies. I'm passionate about learning, creating,
-          and solving real-world problems through technology.
-        </p>
+            <div className="name-wrapper">
 
-        <div className="hero-buttons">
+              <h1>
+                Sahala
+                <span> Fathima P A</span>
+              </h1>
 
-          <a href="#projects">
-            View Projects
-          </a>
+              <h2>
+                AI & Data Science Student
+              </h2>
 
-          <a href="#contact">
-            Contact Me
-          </a>
+            </div>
 
-        </div>
+            {/* SMALL PROFILE PHOTO */}
+            <motion.div
+              className="small-profile-wrapper"
+              initial={{
+                opacity: 0,
+                scale: 0.5,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.4,
+              }}
+            >
 
-        <div className="social-links">
+              <div className="small-photo-ring"></div>
 
-          <a
-            href="https://github.com/sahalaf04-stack"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub ↗
-          </a>
+              <img
+                src="/images/sahala.jpg"
+                alt="Sahala Fathima P A"
+                className="small-profile-photo"
+              />
 
-          <a
-            href="https://www.linkedin.com/in/sahala-fathima-p-a-216b3b372/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn ↗
-          </a>
+            </motion.div>
 
-          <a href="mailto:sahalaf04@gmail.com">
-            Email ↗
-          </a>
+          </div>
 
-        </div>
+
+          <div className="typing-text">
+            Python Developer
+            <span> | </span>
+            AI/ML Enthusiast
+            <span> | </span>
+            MERN Stack Developer
+          </div>
+
+
+          <p className="hero-description">
+            Passionate AI & Data Science student with experience
+            in Python, Machine Learning, Artificial Intelligence,
+            and MERN Stack development. I enjoy building practical
+            applications and continuously learning new technologies.
+          </p>
+
+
+          {/* BUTTONS */}
+          <div className="hero-buttons">
+
+            <a href="#projects">
+              View Projects
+            </a>
+
+            <a href="#contact">
+              Contact Me
+            </a>
+
+          </div>
+
+
+          {/* SOCIAL LINKS */}
+          <div className="hero-socials">
+
+            <a
+              href="https://github.com/sahalaf04-stack"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/sahala-fathima-p-a-216b3b372"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+
+            <a href="mailto:sahalaf04@gmail.com">
+              Email
+            </a>
+
+          </div>
+
+        </motion.div>
 
       </div>
+
     </section>
   );
 }

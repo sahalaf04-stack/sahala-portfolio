@@ -477,17 +477,14 @@ h4 {
 
 
 /* =========================================================
-   HERO
+   HOME / HERO — PROFESSIONAL ANIMATED VERSION
 ========================================================= */
 
-.home,
-.hero {
+.home {
   position: relative;
-
   min-height: 100vh;
 
   display: flex;
-
   align-items: center;
 
   padding: 120px 8% 80px;
@@ -495,26 +492,29 @@ h4 {
   background: #050816;
 
   overflow: hidden;
+  isolation: isolate;
 }
 
 
-/* Animated grid */
+/* =========================================================
+   HERO BACKGROUND
+========================================================= */
 
 .hero-background {
   position: absolute;
-
   inset: 0;
 
   overflow: hidden;
-
   pointer-events: none;
 
-  z-index: 0;
+  z-index: -1;
 }
+
+
+/* Animated Grid */
 
 .hero-grid {
   position: absolute;
-
   inset: 0;
 
   background-image:
@@ -537,11 +537,7 @@ h4 {
       transparent
     );
 
-  animation:
-    gridMove
-    20s
-    linear
-    infinite;
+  animation: gridMove 20s linear infinite;
 }
 
 @keyframes gridMove {
@@ -555,7 +551,9 @@ h4 {
 }
 
 
-/* Hero glows */
+/* =========================================================
+   HERO GLOW EFFECTS
+========================================================= */
 
 .hero-glow {
   position: absolute;
@@ -568,66 +566,67 @@ h4 {
 }
 
 .hero-glow-one {
-  width: 420px;
-  height: 420px;
+  width: 400px;
+  height: 400px;
 
   top: 5%;
   left: 5%;
 
-  background:
-    rgba(56, 189, 248, 0.08);
+  background: rgba(56, 189, 248, 0.08);
 
   animation:
     heroGlowOne
     10s
     ease-in-out
-    infinite
-    alternate;
+    infinite alternate;
 }
 
 .hero-glow-two {
-  width: 380px;
-  height: 380px;
+  width: 350px;
+  height: 350px;
 
   right: 5%;
   bottom: 5%;
 
-  background:
-    rgba(139, 92, 246, 0.08);
+  background: rgba(139, 92, 246, 0.08);
 
   animation:
     heroGlowTwo
     12s
     ease-in-out
-    infinite
-    alternate;
+    infinite alternate;
 }
 
 @keyframes heroGlowOne {
+
   from {
-    transform: translate(0, 0);
+    transform: translate(0, 0) scale(1);
   }
 
   to {
-    transform: translate(100px, 60px);
+    transform: translate(100px, 60px) scale(1.15);
   }
+
 }
 
 @keyframes heroGlowTwo {
+
   from {
-    transform: translate(0, 0);
+    transform: translate(0, 0) scale(1);
   }
 
   to {
-    transform: translate(-80px, -60px);
+    transform: translate(-80px, -60px) scale(1.1);
   }
+
 }
 
 
-/* Hero content */
+/* =========================================================
+   HERO CONTAINER
+========================================================= */
 
-.home-container,
-.hero-container {
+.home-container {
   position: relative;
 
   z-index: 2;
@@ -640,14 +639,16 @@ h4 {
 }
 
 .hero-content {
-  max-width: 900px;
+  max-width: 1100px;
 }
 
 
-/* Greeting */
+/* =========================================================
+   GREETING
+========================================================= */
 
 .hero-greeting {
-  margin: 0 0 14px;
+  margin: 0 0 15px;
 
   color: #38bdf8;
 
@@ -660,48 +661,62 @@ h4 {
   text-transform: uppercase;
 
   animation:
-    fadeUp
+    heroFadeUp
     0.8s
     ease
     both;
 }
 
 
-/* Hero name */
+/* =========================================================
+   NAME
+========================================================= */
 
 .hero-name {
   margin: 0;
 
   color: #f8fafc;
 
-  font-size:
-    clamp(
-      3.5rem,
-      8vw,
-      7rem
-    );
+  /*
+    IMPORTANT:
+    Prevents P A from breaking into separate lines.
+  */
+
+  white-space: nowrap;
+
+  font-size: clamp(
+    3rem,
+    7vw,
+    6.5rem
+  );
 
   font-weight: 900;
 
-  line-height: 0.98;
+  line-height: 1;
 
-  letter-spacing: -4px;
+  letter-spacing: -3px;
 
   animation:
-    fadeUp
-    0.9s
-    0.1s
+    heroNameReveal
+    1s
     ease
     both;
 }
 
+
+/* Name Highlight */
+
 .hero-name-highlight {
+  display: inline;
+
+  white-space: nowrap;
+
   background:
     linear-gradient(
       135deg,
-      #38bdf8,
-      #818cf8,
-      #c084fc
+      #38bdf8 0%,
+      #818cf8 50%,
+      #c084fc 100%
     );
 
   -webkit-background-clip: text;
@@ -710,59 +725,67 @@ h4 {
   -webkit-text-fill-color: transparent;
 
   color: transparent;
-
-  background-size: 200% 200%;
-
-  animation:
-    gradientMove
-    5s
-    ease
-    infinite;
-}
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 
-/* Role */
+/* =========================================================
+   NAME ANIMATION
+========================================================= */
+
+@keyframes heroNameReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px);
+
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+    filter: blur(0);
+  }
+
+}
+
+
+/* =========================================================
+   HERO ROLE
+========================================================= */
 
 .hero-role {
   margin: 25px 0 0;
 
   color: #cbd5e1;
 
-  font-size:
-    clamp(
-      1.1rem,
-      2vw,
-      1.5rem
-    );
+  font-size: clamp(
+    1.1rem,
+    2vw,
+    1.5rem
+  );
 
   font-weight: 600;
 
   line-height: 1.5;
 
   animation:
-    fadeUp
+    heroFadeUp
     0.9s
-    0.2s
+    0.15s
     ease
     both;
 }
 
 
-/* Typing */
+/* =========================================================
+   TYPING / SKILLS TEXT
+========================================================= */
 
 .typing-text {
   margin-top: 18px;
@@ -774,9 +797,9 @@ h4 {
   line-height: 1.8;
 
   animation:
-    fadeUp
+    heroFadeUp
     0.9s
-    0.3s
+    0.25s
     ease
     both;
 }
@@ -789,10 +812,14 @@ h4 {
 
 .typing-separator {
   color: #475569;
+
+  margin: 0 5px;
 }
 
 
-/* Description */
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
 
 .hero-description {
   max-width: 700px;
@@ -806,15 +833,17 @@ h4 {
   line-height: 1.9;
 
   animation:
-    fadeUp
+    heroFadeUp
     0.9s
-    0.4s
+    0.35s
     ease
     both;
 }
 
 
-/* Hero buttons */
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
 
 .hero-buttons {
   display: flex;
@@ -826,9 +855,9 @@ h4 {
   margin-top: 35px;
 
   animation:
-    fadeUp
+    heroFadeUp
     0.9s
-    0.5s
+    0.45s
     ease
     both;
 }
@@ -837,12 +866,11 @@ h4 {
   display: inline-flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 10px;
 
-  padding: 13px 20px;
+  padding: 13px 21px;
 
   border-radius: 10px;
 
@@ -850,16 +878,24 @@ h4 {
 
   font-weight: 700;
 
+  cursor: pointer;
+
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
+    background 0.3s ease,
     border-color 0.3s ease;
 }
+
+
+/* Primary Button */
 
 .primary-button {
   color: #020617;
 
   background: #38bdf8;
+
+  border: 1px solid #38bdf8;
 
   box-shadow:
     0 10px 30px
@@ -873,6 +909,9 @@ h4 {
     0 15px 40px
     rgba(56, 189, 248, 0.3);
 }
+
+
+/* Secondary Button */
 
 .secondary-button {
   color: #cbd5e1;
@@ -889,20 +928,27 @@ h4 {
   color: #38bdf8;
 
   border-color:
-    rgba(56, 189, 248, 0.35);
+    rgba(56, 189, 248, 0.4);
 
   transform: translateY(-4px);
+
+  background:
+    rgba(15, 23, 42, 0.9);
 }
 
 
-/* Social */
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
 
 .hero-socials {
   display: flex;
 
   align-items: center;
 
-  gap: 18px;
+  flex-wrap: wrap;
+
+  gap: 14px;
 
   margin-top: 30px;
 
@@ -911,9 +957,9 @@ h4 {
   font-size: 0.75rem;
 
   animation:
-    fadeUp
+    heroFadeUp
     0.9s
-    0.6s
+    0.55s
     ease
     both;
 }
@@ -921,17 +967,45 @@ h4 {
 .hero-socials a {
   color: #64748b;
 
-  transition: 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .hero-socials a:hover {
   color: #38bdf8;
 
-  transform: translateY(-3px);
+  transform:
+    translateY(-3px);
 }
 
 
-/* Scroll indicator */
+/* =========================================================
+   HERO FADE ANIMATION
+========================================================= */
+
+@keyframes heroFadeUp {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
 
 .scroll-indicator {
   position: absolute;
@@ -950,6 +1024,13 @@ h4 {
   transform: translateX(-50%);
 
   color: #475569;
+
+  animation:
+    scrollIndicatorFade
+    1s
+    1s
+    ease
+    both;
 }
 
 .scroll-indicator span {
@@ -982,18 +1063,217 @@ h4 {
 }
 
 @keyframes scrollLine {
+
   0%,
   100% {
     opacity: 0.3;
-    transform: scaleY(0.7);
+
+    transform:
+      scaleY(0.7);
   }
 
   50% {
     opacity: 1;
-    transform: scaleY(1);
+
+    transform:
+      scaleY(1);
   }
+
 }
 
+@keyframes scrollIndicatorFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .home {
+    padding:
+      110px
+      6%
+      80px;
+  }
+
+  .hero-name {
+    font-size:
+      clamp(
+        2.8rem,
+        9vw,
+        5rem
+      );
+
+    letter-spacing: -2.5px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .home {
+    min-height: 100svh;
+
+    padding:
+      110px
+      6%
+      80px;
+  }
+
+  .hero-greeting {
+    font-size: 0.68rem;
+
+    letter-spacing: 2px;
+  }
+
+
+  /*
+    Keep the complete name on ONE LINE.
+    Slightly smaller font prevents:
+    Sahala Fathima P
+    A
+  */
+
+  .hero-name {
+    font-size:
+      clamp(
+        1.7rem,
+        8vw,
+        3rem
+      );
+
+    letter-spacing: -1.5px;
+
+    line-height: 1;
+
+    white-space: nowrap;
+
+    max-width: 100%;
+  }
+
+  .hero-name-highlight {
+    white-space: nowrap;
+  }
+
+
+  .hero-role {
+    margin-top: 18px;
+
+    font-size: 0.92rem;
+  }
+
+  .typing-text {
+    margin-top: 15px;
+
+    font-size: 0.72rem;
+
+    line-height: 2;
+  }
+
+  .hero-description {
+    margin-top: 18px;
+
+    font-size: 0.78rem;
+
+    line-height: 1.8;
+  }
+
+
+  /* Buttons */
+
+  .hero-buttons {
+    flex-direction: column;
+
+    width: 100%;
+
+    margin-top: 28px;
+  }
+
+  .hero-button {
+    width: 100%;
+  }
+
+
+  /* Social */
+
+  .hero-socials {
+    justify-content: center;
+
+    margin-top: 25px;
+  }
+
+
+  /* Hide scroll indicator */
+
+  .scroll-indicator {
+    display: none;
+  }
+
+
+  /* Smaller background glow */
+
+  .hero-glow-one {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hero-glow-two {
+    width: 220px;
+    height: 220px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .home {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  /*
+    Extra-small phones:
+    keep "P A" together.
+  */
+
+  .hero-name {
+    font-size: 1.55rem;
+
+    letter-spacing: -1px;
+
+    white-space: nowrap;
+  }
+
+  .hero-role {
+    font-size: 0.82rem;
+  }
+
+  .hero-greeting {
+    font-size: 0.62rem;
+  }
+
+}
 
 /* =========================================================
    GLOBAL FADE ANIMATION

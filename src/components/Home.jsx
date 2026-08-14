@@ -32,20 +32,29 @@ function Home() {
           </motion.p>
 
           {/* Name */}
-          <motion.h1
-            className="hero-name"
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.15,
-            }}
-          >
-            <span className="hero-name-highlight">
-              Sahala
-            </span>{" "}
-            Fathima P A
-          </motion.h1>
+<motion.h1
+  className="hero-name"
+  initial={{ opacity: 0, y: 25 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 0.8,
+    delay: 0.15,
+  }}
+>
+  <span className="hero-name-highlight">Sahala</span>{" "}
+  <span>Fathima P A</span>
+</motion.h1>
+
+{/* Role */}
+<motion.h2
+  className="hero-role"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 0.7,
+    delay: 0.3,
+  }}
+></motion.h2>
 
           {/* Role */}
           <motion.h2

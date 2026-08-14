@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 function Projects() {
@@ -62,11 +63,27 @@ function Projects() {
         "https://github.com/sahalaf04-stack/CodeAlpha_HangmanGame",
       live: "#",
     },
+
+    {
+      number: "05",
+      title: "AI Movie Recommender System",
+      description:
+        "An AI-powered movie recommendation system that suggests movies based on user preferences and movie similarity using machine learning techniques.",
+      technologies: [
+        "Python",
+        "Machine Learning",
+        "Recommendation System",
+        "Streamlit",
+      ],
+      github:
+        "https://github.com/sahalaf04-stack/AI-Movie-Recommender",
+      live:
+        "https://sahalaf04-stack-ai-movie-recommender-app-vdd0bs.streamlit.app/",
+    },
   ];
 
   return (
     <section className="projects">
-
       <div className="projects-container">
 
         <p className="section-subtitle">
@@ -85,7 +102,6 @@ function Projects() {
         <div className="projects-grid">
 
           {projects.map((project, index) => (
-
             <motion.div
               className="project-card"
               key={project.number}
@@ -142,34 +158,43 @@ function Projects() {
               </p>
 
               <div className="project-tech">
+                {project.technologies.map((technology) => (
+                  <span key={technology}>
+                    {technology}
+                  </span>
+                ))}
+              </div>
 
-                {project.technologies.map(
-                  (technology) => (
-                    <span key={technology}>
-                      {technology}
-                    </span>
-                  )
+              <div className="project-links">
+
+                <a
+                  className="project-view"
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub →
+                </a>
+
+                {project.live !== "#" && (
+                  <a
+                    className="project-view"
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Live Demo ↗
+                  </a>
                 )}
 
               </div>
 
-              <a
-                className="project-view"
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                View Project on GitHub →
-              </a>
-
             </motion.div>
-
           ))}
 
         </div>
 
       </div>
-
     </section>
   );
 }

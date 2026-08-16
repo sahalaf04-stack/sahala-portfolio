@@ -3186,3 +3186,7 @@ footer p:last-child {
     transition-duration: 0.01ms !important;
   }
 }
+/* Move certificate button lower */
+.certifications .certificate-button {
+  margin-top: 30px;
+}
